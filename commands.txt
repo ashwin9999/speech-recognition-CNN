@@ -1,0 +1,10 @@
+1. Select * from customers
+2. Select name from users
+3. Select grades from students where id = 5
+4. Select * from students where name = John
+5. Delete from customers
+6. Delete from customers where id = 10
+7. Select id, name from customers where address = New York
+8. Select contact, lastname from students
+9. Select * from students where name = John and address = New York
+10. Select * from customers where id = 5 or address = New York
