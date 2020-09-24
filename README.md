@@ -1,4 +1,7 @@
-# Speech recognition using CNN
+# Speech recognition using 1D Conv Neural Network
+
+**Author:** Ashwin Mishra\
+**Date:** May 2019
 
 This is a machine learning application that takes in human voice as input and translates it to text. It uses the deep learning toolkit `TensorFlow` to create and train a convolutional neural network. This application was built as a part of my senior capstone project at Youngstown State University.
 
