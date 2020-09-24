@@ -7,16 +7,10 @@ from preprocess import DatasetReader
 
 class TestExecutor(metaclass=ABCMeta):
 
-  # Base class for testing as well as training. 
-
   def __init__(self):
     self.reader = DatasetReader('data')
-    self.input_size = self.determine_input_size() #calculates the input size
-    # Here batch size is hard coded to be 64. Experiment with it depending on the speed of 
-    # your CPU and/or GPU.
-    self.speech_input = InputBatchLoader(self.input_size, 64,
-                                         partial(self.create_sample_generator, self.get_loader_limit_count()),
-                                         self.get_max_steps())
+    self.input_size = self.determine_input_size()
+    self.speech_input = InputBatchLoader(self.input_size, 64, partial(self.create_sample_generator, self.get_loader_limit_count()), self.get_max_steps())
 
   def determine_input_size(self):
     return next(self.create_sample_generator(limit_count=1))[0].shape[1]
@@ -36,11 +30,11 @@ class TestExecutor(metaclass=ABCMeta):
     coord = tf.train.Coordinator()
     tf.train.start_queue_runners(sess=sess, coord=coord)
     self.speech_input.start_threads(sess=sess, coord=coord, n_threads=n_threads)
+    
     return coord
 
   def create_model(self, sess):
-
-    # Creates the model using the SpeechModel class in the speechModel file. 
     model = create_default_model('evaluate', self.input_size, self.speech_input)
-    model.restore(sess, 'train/best-weights') #Use the weights stored as best-weights that produced the most accurate results.
+    model.restore(sess, 'train/best-weights')
+    
     return model

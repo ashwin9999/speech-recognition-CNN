@@ -17,30 +17,26 @@ class Record:
     """
     from audio import AudioRecorder
 
-    # Creating an Input Loader (More information about it in the speechInput file.)
     loader = SingleInputLoader(128)
-    #creating a recorder (More information about it in the audio file)
     recorder = AudioRecorder()
+
     with tf.Session() as sess:
-      #creating a speech model of the input size 128 and providing it an input loader.
       model = create_default_model('record', 128, loader)
-      #telling the model to use the saved weights (best-weights is the best set of weights 
-      # with the highest accuracy)
       model.restore(sess, 'train/best-weights')
+      
       while True:
-        # Keep recording until the user quits.
         print('Listening...')
         audio, width = recorder.record()
-        # create an array of the audio wave
         audio = np.array(audio)
 
         #calculate the power spectrum of the audio and of sampling rate 16000 
         input_ = preprocess.calculatePowerSpectrogram(audio, 16000)
-        #provide the array of spectrogram to the input loader.
+
         loader.set_input(input_)
         [decoded] = model.step(sess, loss=False, update=False, decode=True)
-        # print what the predicted (decoded) string for the audio is
+
         decoded_ids_paths = [Test.extract_decoded_ids(path) for path in decoded]
+        
         for decoded_path in decoded_ids_paths:
           decoded_ids = next(decoded_path)
           decoded_str = self.idsToSentence(decoded_ids)
@@ -52,7 +48,8 @@ class Record:
   def idToLetter(self, identifier):
     if identifier == 27:
       return ' '
+    
     if identifier == 26:
       return '\''
+    
     return chr(identifier + ord('a'))
-
