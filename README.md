@@ -12,6 +12,7 @@ First step in speech processing is converting analog audio waves into digital da
 ![](assets/hello-spect.png)
 
 ![](assets/spect.png)
+<br>
 Fig: 2-D array transformation for the spectrogram
 
 ## Connectionist Temporal Classification (CTC)
@@ -19,11 +20,10 @@ Fig: 2-D array transformation for the spectrogram
 ![](assets/ctc.png)
 
 - There needs to be an equal number of input `x`'s and output `y`'s.
-- **Problem:** Most of the time, input `x` is a lot larger than the output text `y`. This is generally the case when the audio sample is too long with too many pauses in it but the actual text is only a few words.
 
-**Solution:** 
+**Problem:** Most of the time, input `x` is a lot larger than the output text `y`. This is generally the case when the audio sample is too long with too many pauses in it but the actual text is only a few words.
 
-Collapse repeated characters not separated by blank into on character.
+**Solution:** Collapse repeated characters not separated by blank into on character.
 
 `ttt_h_eee___ ___qqq __`
 The above output is equivalent to `The q`.
@@ -42,7 +42,7 @@ After the model ran on the test data from LibriSpeech dataset, the following res
 
 ## Testing (live recording)
 
-For live recording, `PyAudio` was used to record the speech and then it was transformed into Power Spectrogram fragments. Finally, the decoding was done using CTC Greedy Decoder and the raw string was converted into a sentence structure.
+For live recording, `PyAudio` was used to record the speech and then it was transformed into Power Spectrogram fragments. Finally, decoding was done using CTC Greedy Decoder and the raw string was converted into a sentence structure.
 
 ## Reference
 
