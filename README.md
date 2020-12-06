@@ -3,7 +3,7 @@
 **Author:** Ashwin Mishra\
 **Date:** May 2019
 
-This is an application written in Python that translates human voice to text. It uses the deep learning toolkit `TensorFlow` to create and train a convolutional neural network. Unlike hidden Markov models (HMM), this application uses letters (graphemes) to train the network instead of phonetic transcriptions (phonemes). This application was built as a part of my senior capstone project at Youngstown State University.
+This is an application written in Python that translates human voice to text. It uses the deep learning toolkit [TensorFlow](https://www.tensorflow.org/tutorials/images/cnn) to create and train a convolutional neural network. Unlike hidden Markov models (HMM), this application uses letters (graphemes) to train the network instead of phonetic transcriptions (phonemes). This application was built as a part of my senior capstone project at Youngstown State University.
 
 ## Digitizing analog waves
 
