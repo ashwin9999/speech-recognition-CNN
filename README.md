@@ -32,7 +32,7 @@ The above output is equivalent to `The q`.
 
 A convolutional neural network of 29 classes was created. CTC Greedy decoding was used to decode and predict the output. The weights were stored during the training process as checkpoints which were accessed during the testing process to decode the `test` audio samples. Finally to analyze the statistics, Letter Edit Distance (LED) and Word Edit Distance (WED) were calculated to determine the accuracy.
 
-The datasets used to train the model was the [LibriSpeech](http://www.openslr.org/12) data extracted from OpenSLR. It provided 1000 hours of audio along with the audio transcript perfectly aligned.
+The [LibriSpeech](http://www.openslr.org/12) ASR corpus extracted from OpenSLR was used to train and test the network. It provided 1000 hours of audio with perfectly aligned audio transcript.
 
 After the model ran on the test data from LibriSpeech dataset, the following results were obtained.
 
