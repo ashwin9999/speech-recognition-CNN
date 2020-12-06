@@ -7,7 +7,7 @@ This is an application written in Python that translates human voice to text. It
 
 ## Digitizing analog waves
 
-First step in speech processing is converting analog audio waves into digital data. Therefore, it first transforms the speech signal into a power spectrum. A power spectrogram is a 2-D array of the size `(x, y)` where `x` = length of audio and `y` = mel size. To transform audio files into power spectrogram, librosa was used. Librosa is a python library built for music and audio analysis. 
+First step in speech processing is converting analog audio waves into digital data. Therefore, it first transforms the speech signal into a power spectrum. A power spectrogram is a 2-D array of the size `(x, y)` where `x` = length of audio and `y` = mel size. To transform audio files into power spectrogram, `librosa` was used. [Librosa](https://librosa.org/doc/latest/index.html) is a python library built for music and audio analysis. 
 
 ![](assets/hello-spect.png)
 
